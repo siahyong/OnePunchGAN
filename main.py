@@ -28,10 +28,11 @@ if __name__ == '__main__':
 
     cfg = Config(epoch=100, g_learning_rate=.005, d_learning_rate=0.00005, beta1=0.5, batch_size=1)
 
-    run_config = tf.ConfigProto()
+    # run_config = tf.ConfigProto()
+    run_config = tf.compat.v1.ConfigProto()
     run_config.gpu_options.allow_growth = True
 
-    with tf.Session(config=run_config) as sess:
+    with tf.compat.v1.Session(config=run_config) as sess:
 
         df_dim = 64.
         batch_size = cfg.batch_size
